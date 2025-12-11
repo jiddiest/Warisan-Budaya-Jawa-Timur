@@ -1,0 +1,411 @@
+/* Definisi Variabel Warna */
+:root {
+    /* Teks Utama (Warna Emas/Krem lembut untuk kesan mewah) */
+    --teks-cerah: #f0e6d2; 
+    --teks-highlight: #ffcc99; /* Warna Krem Cerah untuk Judul Kecil (h3) */
+    
+    --coklat-tua: #4f3a2f; /* Coklat Tua yang Elegan */
+    
+    /* OPASITAS KONTEN: Hitam sangat pekat (70% transparan) */
+    --content-bg-color: rgba(0, 0, 0, 0.7); 
+    
+    /* OPASITAS UNTUK JUDUL: Hitam sangat pekat (80% transparan) */
+    --hero-box-bg: rgba(0, 0, 0, 0.8); 
+    
+    /* Warna Shadow dan Border */
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --border-color: rgba(255, 255, 255, 0.2);
+    
+    /* Warna Footer yang Solid */
+    --footer-bg: rgba(0, 0, 0, 0.95);
+}
+
+/* BASE STYLING & FONT */
+body {
+    margin: 0;
+    /* FONT SEBELUM PERUBAHAN IMUT */
+    font-family: 'Poppins', sans-serif;
+    color: var(--teks-cerah); 
+    overflow-x: hidden;
+    min-height: 100vh;
+    
+    /* LATAR BELAKANG BATIK */
+    background: url('motif_batik.jpg');
+    background-color: #1a1a1a; 
+    background-attachment: fixed; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    position: relative;
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layer Gelap di atas Batik */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: -1;
+}
+
+/* HEADER DAN HERO SECTION */
+.hero {
+    text-align: center;
+    padding: 100px 20px 80px 20px; 
+    position: relative;
+    z-index: 10;
+    animation: fadeIn 1s ease-in-out;
+    
+    /* BACKGROUND FULL WIDTH */
+    background-color: var(--hero-box-bg); 
+    border-bottom: 1px solid var(--border-color); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Judul Utama */
+.title {
+    font-size: 3rem; 
+    font-weight: 700; /* Tebal untuk Poppins */
+    letter-spacing: 2px; 
+    color: var(--teks-cerah); 
+    
+    background-color: transparent; 
+    display: block; 
+    
+    padding: 0; 
+    margin: 0 auto; 
+    max-width: 90%; 
+    line-height: 1.2;
+    border-radius: 0; 
+    border: none; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); 
+}
+
+/* Subtitle */
+.subtitle {
+    margin-top: 20px;
+    font-weight: 400; 
+    opacity: 0.9;
+    color: var(--teks-cerah); 
+    
+    background-color: transparent; 
+    display: block; 
+    
+    padding: 0; 
+    margin: 20px auto 0 auto;
+    max-width: 700px;
+    border-radius: 0; 
+    border: none;
+}
+
+/* ASPEK CONTAINER */
+.aspek-container {
+    background-color: transparent;
+    position: relative;
+    z-index: 5; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    padding: 50px 40px;
+}
+
+/* ASPEK CARD (Tombol Kategori) */
+.aspek-card {
+    background: var(--content-bg-color); 
+    color: var(--teks-cerah); 
+    border: 1px solid var(--border-color); 
+    padding: 30px; 
+    border-radius: 18px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    opacity: 0;
+    transform: translateY(30px);
+    font-weight: 600; /* Poppins Semi-bold */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px); 
+}
+
+/* Animasi Hover Tombol: Menonjol/Naik ke Atas */
+.aspek-card:hover {
+    transform: translateY(-10px) scale(1.03); 
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 
+                inset 0 0 15px rgba(255, 255, 255, 0.1); 
+    background-color: rgba(25, 25, 25, 0.85); 
+    border-color: var(--teks-highlight);
+}
+
+/* ANIMATION DELAY CSS */
+.aspek-card:nth-child(1) { animation-delay: 0.0s; }
+.aspek-card:nth-child(2) { animation-delay: 0.1s; }
+.aspek-card:nth-child(3) { animation-delay: 0.2s; }
+.aspek-card:nth-child(4) { animation-delay: 0.3s; }
+.aspek-card:nth-child(5) { animation-delay: 0.4s; }
+.aspek-card:nth-child(6) { animation-delay: 0.5s; }
+.aspek-card:nth-child(7) { animation-delay: 0.6s; }
+.aspek-card:nth-child(8) { animation-delay: 0.7s; }
+
+/* BUDAYA CONTAINER */
+.budaya-container {
+    background-color: transparent;
+    position: relative;
+    z-index: 5; 
+    padding: 50px 40px;
+    animation: fadeIn 0.6s ease-in-out;
+    min-height: 100vh;
+}
+
+.budaya-container.hidden {
+    display: none;
+}
+
+/* Tombol Kembali */
+.back-btn {
+    background: var(--coklat-tua); 
+    color: var(--teks-cerah);
+    border: none;
+    padding: 12px 25px; 
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.back-btn:hover {
+    background-color: #5d4638; 
+    transform: translateY(-2px); 
+}
+
+/* Judul Kategori Budaya (H2) */
+#budaya-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--teks-cerah);
+    background-color: var(--hero-box-bg);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: none;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+
+/* Daftar Budaya */
+#budaya-list {
+    list-style: none;
+    padding: 0;
+    max-width: 1000px; 
+    margin: 30px auto 0 auto;
+}
+
+#budaya-list li {
+    background: var(--content-bg-color); 
+    color: var(--teks-cerah); 
+    border: 1px solid var(--border-color); 
+    margin: 20px 0; 
+    padding: 25px; 
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: box-shadow 0.3s, transform 0.3s;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+#budaya-list li:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.budaya-item {
+    display: flex;
+    gap: 30px; 
+    align-items: flex-start;
+}
+
+.budaya-img {
+    width: 180px; 
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0; 
+    border: 3px solid var(--teks-cerah); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.budaya-info h3 {
+    margin-top: 0;
+    font-size: 1.3rem; 
+    font-weight: 600;
+    color: var(--teks-highlight); 
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8); 
+}
+
+.budaya-info p {
+    font-size: 1rem; 
+    font-weight: 300;
+    color: var(--teks-cerah); 
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+    line-height: 1.6;
+}
+
+/* ANIMASI KEYFRAMES */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); } 
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: all 1s ease-out; 
+}
+
+/* === FOOTER / ABOUT STYLING === */
+.footer {
+    background-color: var(--footer-bg); 
+    color: var(--teks-cerah);
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border-color); 
+    margin-top: 40px; 
+    position: relative;
+    z-index: 10;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Judul Utama Footer (H3) -> Paling Besar */
+.footer h3 {
+    color: var(--teks-highlight);
+    font-size: 1.5rem; /* Ukuran lebih besar untuk judul */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Paragraf Deskripsi (P) -> Ukuran Font Dasar */
+.footer p {
+    font-size: 0.95rem; /* Ukuran font dasar untuk teks deskripsi */
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-weight: 300;
+    opacity: 0.85;
+}
+
+/* Judul Anggota Kelompok (H4) -> Ukuran Font Dasar */
+.info-details h4 {
+    color: var(--teks-highlight);
+    font-size: 0.95rem; /* Sama dengan teks deskripsi */
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+/* List Anggota Kelompok (LI) -> Ukuran Font Dasar */
+.info-details #team-list {
+    list-style-position: inside; 
+    padding-left: 0;
+    margin: 10px auto 20px auto;
+    max-width: 300px; 
+    text-align: left; 
+    color: var(--teks-cerah);
+    font-size: 0.95rem; /* Sama dengan teks deskripsi */
+}
+
+.info-details #team-list li {
+    padding: 2px 0;
+    font-weight: 400;
+    opacity: 0.85;
+}
+
+/* Styling untuk 'Dikembangkan Tahun' */
+.info-details p {
+    margin: 5px 0;
+    font-size: 0.95rem; 
+    opacity: 0.7;
+}
+
+.info-details strong {
+    color: var(--teks-highlight);
+    font-weight: 600;
+}
+
+/* === MEDIA QUERIES (RESPONSIVITAS) === */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 15px 40px 15px;
+    }
+    
+    .title {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        padding: 0;
+    }
+    
+    .aspek-container {
+        grid-template-columns: 1fr; 
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .aspek-card {
+        padding: 20px;
+    }
+
+    .budaya-container {
+        padding: 20px;
+    }
+    
+    #budaya-title {
+        font-size: 2rem;
+    }
+    
+    .budaya-item {
+        flex-direction: column; 
+        gap: 15px;
+        text-align: center;
+    }
+
+    .budaya-img {
+        width: 100%; 
+        height: 200px;
+    }
+
+    .budaya-info h3, .budaya-info p {
+        text-align: left; 
+    }
+
+    .footer {
+        padding: 30px 15px;
+    }
+
+    .footer h3 {
+        font-size: 1.3rem; 
+    }
+
+    .footer p, 
+    .info-details h4, 
+    .info-details #team-list, 
+    .info-details #team-list li {
+        font-size: 0.9rem; 
+    }
+}
